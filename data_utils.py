@@ -96,7 +96,7 @@ def get_prepared_data():
         # all_data_df.isnull().mean() * 100
         all_data_df = pd.concat([all_data_df, user_df])
         all_data_df = all_data_df.dropna()
-
+    
     esm_response = pd.read_csv('data/SubjData/EsmResponse.csv')
     joined_df = pd.merge(
             all_data_df,
@@ -117,6 +117,16 @@ def get_prepared_data():
     df["accel-10min"] = np.sqrt(df["x-10min"] ** 2 + df["y-10min"] ** 2 + df["z-10min"] ** 2)
     df = df.drop(columns=['x', 'y', 'z', 'x-1min', 'y-1min', 'z-1min', 'x-5min', 'y-5min', 'z-5min', 'x-10min', 'y-10min', 'z-10min'])
 
+    user_info = pd.read_csv('data/SubjData/UserInfo.csv')
+    df = pd.merge(
+        df,
+        user_info,
+        how="inner",
+        left_on=['pcode'],
+        right_on=['pcode']
+        )
+
     df = df.sample(frac=1)
+
 
     return df
