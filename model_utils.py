@@ -258,7 +258,7 @@ def get_grid_search(model, param_grid):
     return GridSearchCV(
         estimator=model, 
         param_grid=param_grid, 
-        cv=7,               
+        cv=10,               
         verbose=2,          
         n_jobs=-1,
         refit="accuracy",

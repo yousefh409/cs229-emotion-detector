@@ -14,3 +14,4 @@ dependencies:
   - tensorflow
   - pandas
   - scikit-learn>1.0.0
+  - scikeras
