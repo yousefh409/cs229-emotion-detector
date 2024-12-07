@@ -3,12 +3,14 @@ channels:
   - defaults
   - conda-forge
 dependencies:
-  - matplotlib=2.2.2
-  - numpy=1.15.0
-  - pip=10.0.1
-  - python=3.6.6
+  - python=3.7
+  - matplotlib
+  - numpy
+  - pip
+  # - python=3.6.6
   - scipy
   - pillow
   - mord
   - tensorflow
   - pandas
+  - scikit-learn>1.0.0

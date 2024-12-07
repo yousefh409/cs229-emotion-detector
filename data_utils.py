@@ -51,7 +51,7 @@ def remove_mul_deltas(df):
   return df
 
 
-def get_prepared_data():
+def get_prepared_data(shuffle=True):
     pcodes = [f"P{str(i).zfill(2)}" for i in range(81)]
     all_data_df = pd.DataFrame()
 
@@ -126,7 +126,7 @@ def get_prepared_data():
         right_on=['pcode']
         )
 
-    df = df.sample(frac=1)
-
+    if shuffle:
+        df = df.sample(frac=1)
 
     return df
